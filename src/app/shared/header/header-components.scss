@@ -1,0 +1,13 @@
+.sticky-nav {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  left: 0;
+  z-index: 99999;
+  background: #fff;
+  height: 90px;
+  box-shadow: 1px 2px 1px #dad9d9;
+  &__wrap{
+    padding-top: 10px;
+  }
+}

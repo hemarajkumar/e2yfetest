@@ -1,0 +1,29 @@
+
+  
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 !important;
+  }
+    
+  .more-details-button {
+    width: 100%;
+    display: flex;
+  }
+  
+  .e2y-button {
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 3px solid $pink-color;
+    border-radius: 30px;
+    line-height: 18px;
+    padding: 12px 20px;
+    text-align: center;
+    background-color: $pink-color;
+    color: $light-primary-text;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .6s,background-color .6s,border-color .6s
+  }
+  

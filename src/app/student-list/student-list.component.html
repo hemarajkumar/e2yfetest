@@ -1,0 +1,39 @@
+
+<app-product-search (sortListEvent)="sortBy($event)" (searchName)="searchByName($event)"></app-product-search>
+
+<div class="plp-list pt-4">
+  <div class="plp-list__container">
+    <ul class="plp-list__results">
+      <ng-container *ngFor="let list of searchLists">
+        <li class="plp-list__item">
+          <mat-card class="plp-list__item--container">
+            <picture *ngIf="list.image else defaultImg">
+              <source media='(min-width:0px)' [srcset]="list.image">
+              <img mat-card-image src="" [alt]="list.name">
+            </picture>
+            <mat-card-content ngClass="product-tile__details">
+              <h2 class="bold">{{ list.name }}</h2>
+              <p *ngIf="list.hogwartsStudent">Student</p>
+              <p *ngIf="list.hogwartsStaff">Staff</p>
+              <p *ngIf="!list.hogwartsStaff && !list.hogwartsStudent">&nbsp;</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <div class="more-details-button">
+                <a [attr.aria-label]="'Student Details Page Navigation'" routerLink="/studentDetails/{{list.id}}" class="e2y-button">
+                  More Details
+                </a>
+              </div>
+            </mat-card-actions>
+          </mat-card>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>
+
+<ng-template #defaultImg>
+  <picture>
+    <source media='(min-width:0px)' [srcset]="noImage">
+    <img mat-card-image src="" alt="No image available">
+  </picture>
+</ng-template>

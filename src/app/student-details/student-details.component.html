@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<div class="student-details page-container">
+    <div class="container d-flex mb-4 mt-4">
+        <a [attr.aria-label]="'Back to search list page'" routerLink="/">Search List</a>
+      </div>
+    <div class="student-details__main-title d-flex justify-content-center align-items-center">
+        <h1 *ngIf="studentList.hogwartsStudent">Student Details</h1>
+        <h1 *ngIf="studentList.hogwartsStaff">Staff Details</h1>
+        <h1 *ngIf="!studentList.hogwartsStaff && !studentList.hogwartsStudent">Member Details</h1>
+    </div>
+    <div class="plp-list pt-5 pb-5">
+        <div class="plp-list__container details">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="student-details__image">
+                        <picture *ngIf="studentList?.image else defaultImg">
+                            <source media='(min-width:0px)' [srcset]="studentList.image">
+                            <img mat-card-image src="" [alt]="studentList.name">
+                        </picture>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="student-details__about">
+                        <h2 *ngIf="studentList.hogwartsStudent">Student</h2>
+                        <h2 *ngIf="studentList.hogwartsStaff">Staff</h2>
+                        <h2 *ngIf="!studentList.hogwartsStaff && !studentList.hogwartsStudent">Member</h2>
+                    </div>
+                    <div class="student-details__wrapper d-flex flex-column align-items-start">
+                        <p>Name: <b>{{ studentList.name }}</b></p>
+                        <p class="mt-4">More details showing here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #defaultImg>
+    <picture>
+      <source media='(min-width:0px)' [srcset]="noImage">
+      <img mat-card-image src="" alt="No image available">
+    </picture>
+  </ng-template>
+  
